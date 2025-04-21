@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:01:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 12:48:05 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:54:46 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,9 @@ void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
 	buffer[(y * fractal->size_line / 4) + x] = color;
 }
 
-void	change_iterations(t_fractal *fractal, int key_code)
-{
-	if (key_code == M)
-	{
-		if (fractal->max_iterations > 42)
-			fractal->max_iterations -= 42;
-	}
-	else if (key_code == P)
-	{
-		if (fractal->max_iterations < 4200)
-			fractal->max_iterations += 42;
-	}
-}
-
 double	generate_random_c(void)
 {
-	return (((double)rand() / RAND_MAX) * 3.0 - 1.5);
+	return (((double)rand() / RAND_MAX) * 0.6 - 0.3);
 }
 
 int	ft_strcmp(char *s1, char *s2)

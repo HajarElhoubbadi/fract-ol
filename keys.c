@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:06:06 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 12:44:43 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:39:40 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
 	double	zoom_level;
 
-	zoom_level = 1.42;
+	zoom_level = 1.1;
 	if (zoom == 1)
 	{
 		fractal->offset_x = (x / fractal->zoom + fractal->offset_x) - (x
@@ -53,18 +53,14 @@ int	key_hook(int key_code, t_fractal *fractal)
 		init_fractal(fractal);
 	else if (key_code == C)
 		fractal->color += (255 * 255 * 255) / 100;
-	else if (key_code == J)
-		set_random_julia(&fractal->cx, &fractal->cx);
-	else if (key_code == M || key_code == P)
-		change_iterations(fractal, key_code);
 	draw_fractal(fractal, fractal->name);
 	return (0);
 }
 
-void	set_random_julia(double *cx, double *cy)
+void	set_random_julia(double *creal, double *cimaginary)
 {
-	*cx = generate_random_c();
-	*cy = generate_random_c();
+	*creal = generate_random_c();
+	*cimaginary = generate_random_c();
 }
 
 int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)

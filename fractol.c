@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 11:45:06 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/21 19:09:48 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ t_fractal	*init_program(int argc, char **argv)
 	if (!fractal)
 		return (NULL);
 	fractal->name = argv[1];
-	init_mlx(fractal);
-	init_fractal(fractal);
 	if (!ft_strcmp(argv[1], "julia") && argc == 4)
 	{
 		if (!is_number(argv[2]) || !is_number(argv[3]))
@@ -48,9 +46,11 @@ t_fractal	*init_program(int argc, char **argv)
 			free(fractal);
 			exit(1);
 		}
-		fractal->cx = ft_atof(argv[2]);
-		fractal->cy = ft_atof(argv[3]);
+		fractal->cre = ft_atof(argv[2]);
+		fractal->cim = ft_atof(argv[3]);
 	}
+	init_fractal(fractal);
+	init_mlx(fractal);
 	return (fractal);
 }
 

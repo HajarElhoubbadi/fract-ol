@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:37:05 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 12:42:59 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/21 19:10:53 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,26 @@ void	init_fractal(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->color = 0xffffff;
 	fractal->zoom = 300;
-	if (ft_strcmp(fractal->name, "mandelbrot") == 0)
-	{
-		fractal->offset_x = -2.10;
-		fractal->offset_y = -1.50;
-	}
-	else if (ft_strcmp(fractal->name, "julia") == 0)
-	{
-		fractal->offset_x = -1.60;
-		fractal->offset_y = -1.50;
-	}
-	else if (ft_strcmp(fractal->name, "tricorn") == 0)
-	{
-		fractal->offset_x = -2.10;
-		fractal->offset_y = -1.50;
-	}
 	fractal->max_iterations = 42;
+	if (!ft_strcmp(fractal->name, "mandelbrot"))
+	{
+		fractal->color = 0xffffff;
+		fractal->offset_x = -0.5;
+		fractal->offset_y = 0.0;
+	}
+	else if (!ft_strcmp(fractal->name, "tricorn"))
+	{
+		fractal->color = 0xffffff;
+		fractal->offset_x = -0.5;
+		fractal->offset_y = 0.0;
+	}
+	else if (!ft_strcmp(fractal->name, "julia"))
+	{
+		fractal->color = 0x101010;
+		fractal->offset_x = -0.0;
+		fractal->offset_y = 0.0;
+	}
 }
 
 void	init_mlx(t_fractal *fractal)

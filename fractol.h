@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 12:42:05 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:40:45 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # define SIZE 800
 # define WIDTH 800
-# define NUMBER 100
 
 # define ESC 53
 # define UP 126
@@ -28,10 +27,6 @@
 # define RIGHT 124
 # define R 15
 # define C 8
-# define H 4
-# define J 38
-# define P 35
-# define M 46
 
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
@@ -47,10 +42,10 @@ typedef struct s_fractal
 	int		endian;
 	int		x;
 	int		y;
-	double	zx;
-	double	zy;
-	double	cx;
-	double	cy;
+	double	zre;
+	double	zim;
+	double	cre;
+	double	cim;
 	int		color;
 	double	offset_x;
 	double	offset_y;
@@ -73,14 +68,12 @@ void	calculate_julia(t_fractal *fractal);
 void	calculate_mandelbrot(t_fractal *fractal);
 void	calculate_tricorn(t_fractal *fractal);
 int		ft_strcmp(char *s1, char *s2);
+double	generate_random_c(void);
 void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color);
 void	change_iterations(t_fractal *fractal, int key_code);
-void	set_random_julia(double *cx, double *cy);
-double	generate_random_c(void);
 int		draw_fractal(t_fractal *fractal, char *query);
 int		is_number(char *s);
 void	error_msg(t_fractal *s_fractal);
 int		kill_window(t_fractal *s_fractal);
-int		draw_fractal(t_fractal *fractal, char *query);
 
 #endif
