@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 19:09:48 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/26 14:16:54 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	main(int argc, char **argv)
 
 	if (!is_valid_args(argc, argv))
 	{
-		write(2, "./fractol mandelbrot\n", 22);
+		write(2, "./fractol mandelbrot\n", 21);
+		write(2, "./fractol tricorn\n", 18);
 		write(2, "./fractol julia <real> <imaginary>\n", 35);
 		return (1);
 	}

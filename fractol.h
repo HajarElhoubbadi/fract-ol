@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 18:40:45 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/26 19:50:35 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124
-# define R 15
 # define C 8
 
 # define SCROLL_UP 4
@@ -36,7 +35,7 @@ typedef struct s_fractal
 	void	*mlx;
 	void	*window;
 	void	*image;
-	void	*pointer_to_image;
+	char	*pointer_to_image;
 	int		bits_per_pixel;
 	int		size_line;
 	int		endian;
@@ -75,5 +74,6 @@ int		draw_fractal(t_fractal *fractal, char *query);
 int		is_number(char *s);
 void	error_msg(t_fractal *s_fractal);
 int		kill_window(t_fractal *s_fractal);
+double	scale(double pixel, double min, double max, int size);
 
 #endif
