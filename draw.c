@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:34:49 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 20:37:00 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:44:30 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	draw_mandelbrot(t_fractal *fractal)
 	{
 		while (fractal->x < HIGH)
 		{
-			
 			calculate_mandelbrot(fractal);
 			fractal->x++;
 		}

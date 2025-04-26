@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:55:11 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 20:38:09 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:49:21 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ void	calculate_mandelbrot(t_fractal *fractal)
 		put_color_to_pixel(fractal, fractal->x,
 			fractal->y, fractal->color * i);
 }
-
