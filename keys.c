@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:06:06 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 19:50:23 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:37:56 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
 		 2.0 / fractal->zoom + fractal->offset_x, WIDTH);
 	mouse_im = scale(y,
 		-2.0 / fractal->zoom + fractal->offset_y,
-		 2.0 / fractal->zoom + fractal->offset_y, SIZE);
+		 2.0 / fractal->zoom + fractal->offset_y, HIGH);
 	if (zoom == 1) // zoom in
 		fractal->zoom *= zoom_level;
 	else if (zoom == -1) // zoom out
@@ -33,7 +33,7 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
 		return ;
 	// After zoom, adjust offset so that zoom happens *at the mouse position*
 	fractal->offset_x = mouse_re - (scale(x,-2.0 / fractal->zoom,2.0 / fractal->zoom, WIDTH));
-	fractal->offset_y = mouse_im - (scale(y,-2.0 / fractal->zoom,2.0 / fractal->zoom, SIZE));
+	fractal->offset_y = mouse_im - (scale(y,-2.0 / fractal->zoom,2.0 / fractal->zoom, HIGH));
 }
 
 int	key_hook(int key_code, t_fractal *fractal)

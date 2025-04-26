@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:34:49 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 16:44:06 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:37:00 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	draw_mandelbrot(t_fractal *fractal)
 	fractal->y = 0;
 	while (fractal->y < WIDTH)
 	{
-		while (fractal->x < SIZE)
+		while (fractal->x < HIGH)
 		{
 			
 			calculate_mandelbrot(fractal);
@@ -50,9 +50,9 @@ int	draw_julia(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	while (fractal->x < SIZE)
+	while (fractal->x < HIGH)
 	{
-		while (fractal->y < SIZE)
+		while (fractal->y < HIGH)
 		{
 			calculate_julia(fractal);
 			fractal->y++;
@@ -69,9 +69,9 @@ int	draw_tricorn(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	while (fractal->x < SIZE)
+	while (fractal->x < HIGH)
 	{
-		while (fractal->y < SIZE)
+		while (fractal->y < HIGH)
 		{
 			calculate_tricorn(fractal);
 			fractal->y++;

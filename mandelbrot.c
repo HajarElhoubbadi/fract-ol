@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:55:11 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 19:44:48 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:38:09 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	calculate_mandelbrot(t_fractal *fractal)
 	fractal->cre = scale(fractal->x, -2.0 / fractal->zoom + fractal->offset_x,
 			2.0 / fractal->zoom + fractal->offset_x, WIDTH);
 	fractal->cim = scale(fractal->y, -2.0 / fractal->zoom + fractal->offset_y,
-			2.0 / fractal->zoom + fractal->offset_y, SIZE);
+			2.0 / fractal->zoom + fractal->offset_y, HIGH);
 	i = 0;
 	while (++i < fractal->max_iterations)
 	{
