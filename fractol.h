@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 20:36:43 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 14:27:20 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define HIGH 800
+# define SIZE 800
 # define WIDTH 800
 
 # define ESC 53
@@ -68,12 +68,11 @@ void	calculate_mandelbrot(t_fractal *fractal);
 void	calculate_tricorn(t_fractal *fractal);
 int		ft_strcmp(char *s1, char *s2);
 double	generate_random_c(void);
+int		move_julia(int x, int y, t_fractal *ptr);
 void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color);
 void	change_iterations(t_fractal *fractal, int key_code);
 int		draw_fractal(t_fractal *fractal, char *query);
 int		is_number(char *s);
-void	error_msg(t_fractal *s_fractal);
-int		kill_window(t_fractal *s_fractal);
 double	scale(double pixel, double min, double max, int size);
 
 #endif

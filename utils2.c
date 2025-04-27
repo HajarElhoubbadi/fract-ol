@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 18:43:50 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/21 12:50:00 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 14:14:03 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,4 @@ double	ft_atof(char *s)
 		}
 	}
 	return (nb * sign);
-}
-
-int	kill_window(t_fractal *s_fractal)
-{
-	mlx_destroy_image(s_fractal->mlx, s_fractal->image);
-	mlx_destroy_window(s_fractal->mlx, s_fractal->window);
-	free (s_fractal);
-	exit(0);
 }

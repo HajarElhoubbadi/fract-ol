@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:37:05 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 20:37:33 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 14:03:31 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,28 @@ void	init_fractal(t_fractal *fractal)
 void	init_mlx(t_fractal *fractal)
 {
 	fractal->mlx = mlx_init();
-	if (fractal->mlx == NULL)
+	if (!fractal->mlx)
 	{
-		free(fractal->mlx);
-		free(fractal);
-		write(2, "There was a problem\n", 20);
-		exit(1);
+		write(2, "Error: MLX initialization failed\n", 33);
+		exit_fractal(fractal);
 	}
-	fractal->window = mlx_new_window(fractal->mlx, HIGH, HIGH, fractal->name);
-	if (fractal->window == NULL)
+	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, fractal->name);
+	if (!fractal->window)
 	{
-		free(fractal->window);
-		free(fractal->mlx);
-		write(2, "There was a problem creating the window\n", 40);
-		exit(1);
+		write(2, "Error: Failed to create window\n", 31);
+		exit_fractal(fractal);
 	}
-	fractal->image = mlx_new_image(fractal->mlx, HIGH, HIGH);
-	fractal->pointer_to_image = mlx_get_data_addr
-		(fractal->image, &fractal->bits_per_pixel,
-			&fractal->size_line, &fractal->endian);
+	fractal->image = mlx_new_image(fractal->mlx, SIZE, SIZE);
+	if (!fractal->image)
+	{
+		write(2, "Error: Failed to create image\n", 30);
+		exit_fractal(fractal);
+	}
+	fractal->pointer_to_image = mlx_get_data_addr(fractal->image,
+			&fractal->bits_per_pixel, &fractal->size_line, &fractal->endian);
+	if (!fractal->pointer_to_image)
+	{
+		write(2, "Error: Failed to get image address\n", 35);
+		exit_fractal(fractal);
+	}
 }

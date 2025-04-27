@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 11:43:31 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 20:38:17 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 14:03:08 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	calculate_tricorn(t_fractal *fractal)
 	fractal->cre = scale(fractal->x, -2.0 / fractal->zoom + fractal->offset_x,
 			2.0 / fractal->zoom + fractal->offset_x, WIDTH);
 	fractal->cim = scale(fractal->y, -2.0 / fractal->zoom + fractal->offset_y,
-			2.0 / fractal->zoom + fractal->offset_y, HIGH);
+			2.0 / fractal->zoom + fractal->offset_y, SIZE);
 	i = 0;
 	while (++i < fractal->max_iterations)
 	{

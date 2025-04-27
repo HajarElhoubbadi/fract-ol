@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:34:49 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 20:44:30 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 14:41:24 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	draw_mandelbrot(t_fractal *fractal)
 	fractal->y = 0;
 	while (fractal->y < WIDTH)
 	{
-		while (fractal->x < HIGH)
+		while (fractal->x < SIZE)
 		{
 			calculate_mandelbrot(fractal);
 			fractal->x++;
@@ -49,9 +49,9 @@ int	draw_julia(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	while (fractal->x < HIGH)
+	while (fractal->x < SIZE)
 	{
-		while (fractal->y < HIGH)
+		while (fractal->y < SIZE)
 		{
 			calculate_julia(fractal);
 			fractal->y++;
@@ -61,6 +61,7 @@ int	draw_julia(t_fractal *fractal)
 	}
 	mlx_put_image_to_window(fractal->mlx, fractal->window,
 		fractal->image, 0, 0);
+	mlx_hook(fractal->window, 6, 0, move_julia, fractal);
 	return (0);
 }
 
@@ -68,9 +69,9 @@ int	draw_tricorn(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	while (fractal->x < HIGH)
+	while (fractal->x < SIZE)
 	{
-		while (fractal->y < HIGH)
+		while (fractal->y < SIZE)
 		{
 			calculate_tricorn(fractal);
 			fractal->y++;

@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:54:47 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 20:37:41 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 14:41:08 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	calculate_julia(t_fractal *fractal)
 	fractal->zre = scale(fractal->x, -2.0 / fractal->zoom + fractal->offset_x,
 			2.0 / fractal->zoom + fractal->offset_x, WIDTH);
 	fractal->zim = scale(fractal->y, -2.0 / fractal->zoom + fractal->offset_y,
-			2.0 / fractal->zoom + fractal->offset_y, HIGH);
+			2.0 / fractal->zoom + fractal->offset_y, SIZE);
 	i = 0;
 	while (++i < fractal->max_iterations)
 	{

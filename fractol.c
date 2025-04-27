@@ -6,70 +6,55 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/26 14:16:54 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 14:13:46 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	is_valid_args(int argc, char **argv)
+int	check_args(int argc, char **argv)
 {
-	if (argc == 2 && !ft_strcmp(argv[1], "mandelbrot"))
+	if ((argc == 2 && (!ft_strcmp(argv[1], "mandelbrot")
+				|| !ft_strcmp(argv[1], "tricorn")))
+		|| (argc == 4 && !ft_strcmp(argv[1], "julia")))
 		return (1);
-	if (argc == 4 && !ft_strcmp(argv[1], "julia"))
-		return (1);
-	if (argc == 2 && !ft_strcmp(argv[1], "tricorn"))
-		return (1);
+	write(2, "./fractol mandelbrot\n", 21);
+	write(2, "./fractol tricorn\n", 18);
+	write(2, "./fractol julia <real> <imaginary>\n", 35);
 	return (0);
 }
 
-void	setup_hooks(t_fractal *s_fractal)
+int	handle_julia(t_fractal *f, char **argv)
 {
-	mlx_key_hook(s_fractal->window, key_hook, s_fractal);
-	mlx_mouse_hook(s_fractal->window, mouse_hook, s_fractal);
-	mlx_hook(s_fractal->window, 17, 0, kill_window, s_fractal);
-}
-
-t_fractal	*init_program(int argc, char **argv)
-{
-	t_fractal	*fractal;
-
-	fractal = malloc(sizeof(t_fractal));
-	if (!fractal)
-		return (NULL);
-	fractal->name = argv[1];
-	if (!ft_strcmp(argv[1], "julia") && argc == 4)
+	if (!is_number(argv[2]) || !is_number(argv[3]))
 	{
-		if (!is_number(argv[2]) || !is_number(argv[3]))
-		{
-			write(2, "Error\n", 6);
-			free(fractal);
-			exit(1);
-		}
-		fractal->cre = ft_atof(argv[2]);
-		fractal->cim = ft_atof(argv[3]);
+		write(2, "Error\n", 6);
+		free(f);
+		exit(1);
 	}
-	init_fractal(fractal);
-	init_mlx(fractal);
-	return (fractal);
+	f->cre = ft_atof(argv[2]);
+	f->cim = ft_atof(argv[3]);
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
-	t_fractal	*fractal;
+	t_fractal	*f;
 
-	if (!is_valid_args(argc, argv))
-	{
-		write(2, "./fractol mandelbrot\n", 21);
-		write(2, "./fractol tricorn\n", 18);
-		write(2, "./fractol julia <real> <imaginary>\n", 35);
+	if (!check_args(argc, argv))
 		return (1);
-	}
-	fractal = init_program(argc, argv);
-	if (!fractal)
+	f = malloc(sizeof(t_fractal));
+	if (!f)
 		return (1);
-	setup_hooks(fractal);
-	draw_fractal(fractal, fractal->name);
-	mlx_loop(fractal->mlx);
+	f->name = argv[1];
+	if (!ft_strcmp(f->name, "julia"))
+		handle_julia(f, argv);
+	init_fractal(f);
+	init_mlx(f);
+	mlx_key_hook(f->window, key_hook, f);
+	mlx_mouse_hook(f->window, mouse_hook, f);
+	mlx_hook(f->window, 17, 0, exit_fractal, f);
+	draw_fractal(f, f->name);
+	mlx_loop(f->mlx);
 	return (0);
 }
