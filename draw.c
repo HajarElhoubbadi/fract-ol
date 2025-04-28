@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:34:49 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/27 14:41:24 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/28 16:58:12 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	draw_fractal(t_fractal *fractal, char *query)
 {
 	mlx_clear_window(fractal->mlx, fractal->window);
-	if (!ft_strcmp(query, "mandelbrot"))
+	if (ft_strcmp(query, "mandelbrot") == 0)
 		draw_mandelbrot(fractal);
-	else if (!ft_strcmp(query, "julia"))
+	else if (ft_strcmp(query, "julia") == 0)
 		draw_julia(fractal);
-	else if (!ft_strcmp(query, "tricorn"))
+	else if (ft_strcmp(query, "tricorn") == 0)
 		draw_tricorn(fractal);
 	else
 		exit_fractal(fractal);

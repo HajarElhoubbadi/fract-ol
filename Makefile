@@ -1,20 +1,27 @@
 NAME = fractol
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-LIBS = -lmlx  -framework OpenGL -framework AppKit
 
-SRC = draw.c fractol.c init.c julia.c keys.c mandelbrot.c utils.c utils2.c tricorn.c
-OBJ = $(SRC:.c=.o)
+SRCS = draw.c fractol.c init.c julia.c keys.c mandelbrot.c utils.c utils2.c tricorn.c
+
+OBJS = $(SRCS:.c=.o)
+
+FLAG = -Wall -Wextra -Werror
+
+CC = cc
+
+HEADER = fractol.h 
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBS)
+%.o: %.c $(HEADER)
+	$(CC) $(FLAG) -Imlx -c $< -o $@
 
-clean:
-	rm -f $(OBJ)
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-fclean: clean
-	rm -f $(NAME)
+clean :
+	rm -rf $(OBJS)
 
-re: fclean all
+fclean : clean
+	rm -rf $(NAME)
+
+re : fclean all

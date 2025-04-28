@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:37:05 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/27 14:03:31 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/27 17:03:36 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	init_mlx(t_fractal *fractal)
 		write(2, "Error: MLX initialization failed\n", 33);
 		exit_fractal(fractal);
 	}
-	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, fractal->name);
+	fractal->window = mlx_new_window(fractal->mlx, WIDTH, SIZE, fractal->name);
 	if (!fractal->window)
 	{
 		write(2, "Error: Failed to create window\n", 31);
 		exit_fractal(fractal);
 	}
-	fractal->image = mlx_new_image(fractal->mlx, SIZE, SIZE);
+	fractal->image = mlx_new_image(fractal->mlx, WIDTH, SIZE);
 	if (!fractal->image)
 	{
 		write(2, "Error: Failed to create image\n", 30);
