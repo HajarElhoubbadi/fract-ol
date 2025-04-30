@@ -6,17 +6,11 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:55:11 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/27 14:02:57 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/04/28 17:26:40 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-// double	scale_between(double unscaled_num, double min_allowed,
-// 		double max_allowed, double max)
-// {
-// 	return ((max_allowed - min_allowed) * unscaled_num / max + min_allowed);
-// }
 
 double	scale(double pixel, double min, double max, int size)
 {
