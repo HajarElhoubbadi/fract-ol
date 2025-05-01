@@ -6,48 +6,48 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:37:05 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/01 16:50:25 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:42:47 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_fractal(t_fractal *fractal)
+void	init_fractal(t_fractal *f)
 {
-	fractal->x = 0;
-	fractal->y = 0;
-	fractal->zoom = 1;
-	fractal->max_iterations = 100;
-	fractal->color = 0xFFF8DC;
-	fractal->offset_x = 0.0;
-	fractal->offset_y = 0.0;
+	f->x = 0;
+	f->y = 0;
+	f->zoom = 1;
+	f->max_iterations = 100;
+	f->color = 0xFFF8DC;
+	f->offset_x = 0.0;
+	f->offset_y = 0.0;
 }
 
-void	init_mlx(t_fractal *fractal)
+void	init_mlx(t_fractal *f)
 {
-	fractal->mlx = mlx_init();
-	if (!fractal->mlx)
+	f->mlx = mlx_init();
+	if (!f->mlx)
 	{
 		write(2, "Error: MLX initialization failed\n", 33);
-		exit_fractal(fractal);
+		exit_fractal(f);
 	}
-	fractal->window = mlx_new_window(fractal->mlx, WIDTH, SIZE, fractal->name);
-	if (!fractal->window)
+	f->window = mlx_new_window(f->mlx, WIDTH, SIZE, f->name);
+	if (!f->window)
 	{
 		write(2, "Error: Failed to create window\n", 31);
-		exit_fractal(fractal);
+		exit_fractal(f);
 	}
-	fractal->image = mlx_new_image(fractal->mlx, WIDTH, SIZE);
-	if (!fractal->image)
+	f->image = mlx_new_image(f->mlx, WIDTH, SIZE);
+	if (!f->image)
 	{
 		write(2, "Error: Failed to create image\n", 30);
-		exit_fractal(fractal);
+		exit_fractal(f);
 	}
-	fractal->pointer_to_addr = mlx_get_data_addr(fractal->image,
-			&fractal->bits_per_pixel, &fractal->size_line, &fractal->endian);
-	if (!fractal->pointer_to_addr)
+	f->pointer_to_addr = mlx_get_data_addr(f->image,
+			&f->bits_per_pixel, &f->size_line, &f->endian);
+	if (!f->pointer_to_addr)
 	{
 		write(2, "Error: Failed to get image address\n", 35);
-		exit_fractal(fractal);
+		exit_fractal(f);
 	}
 }

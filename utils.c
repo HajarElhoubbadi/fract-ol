@@ -6,28 +6,28 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:01:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/01 15:33:04 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:43:34 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	exit_fractal(t_fractal *fractal)
+int	exit_fractal(t_fractal *f)
 {
-	mlx_destroy_image(fractal->mlx, fractal->image);
-	mlx_destroy_window(fractal->mlx, fractal->window);
-	free(fractal->mlx);
-	free(fractal);
+	mlx_destroy_image(f->mlx, f->image);
+	mlx_destroy_window(f->mlx, f->window);
+	free(f->mlx);
+	free(f);
 	exit(1);
 	return (0);
 }
 
-void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
+void	put_color_to_pixel(t_fractal *f, int x, int y, int color)
 {
 	char	*buffer;
 
-	buffer = fractal->pointer_to_addr + ((y * fractal->size_line)
-			+ (x *(fractal->bits_per_pixel / 8)));
+	buffer = f->pointer_to_addr + ((y * f->size_line)
+			+ (x *(f->bits_per_pixel / 8)));
 	*(unsigned int *)buffer = color;
 }
 

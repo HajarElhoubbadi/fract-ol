@@ -6,80 +6,80 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:34:49 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/01 20:34:01 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:42:20 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	draw_fractal(t_fractal *fractal, char *query)
+int	draw_fractal(t_fractal *f, char *query)
 {
-	mlx_clear_window(fractal->mlx, fractal->window);
+	mlx_clear_window(f->mlx, f->window);
 	if (ft_strcmp(query, "mandelbrot") == 0)
-		draw_mandelbrot(fractal);
+		draw_mandelbrot(f);
 	else if (ft_strcmp(query, "julia") == 0)
-		draw_julia(fractal);
+		draw_julia(f);
 	else if (ft_strcmp(query, "tricorn") == 0)
-		draw_tricorn(fractal);
+		draw_tricorn(f);
 	else
-		exit_fractal(fractal);
+		exit_fractal(f);
 	return (0);
 }
 
-int	draw_mandelbrot(t_fractal *fractal)
+int	draw_mandelbrot(t_fractal *f)
 {
-	fractal->x = 0;
-	fractal->y = 0;
-	while (fractal->y < WIDTH)
+	f->x = 0;
+	f->y = 0;
+	while (f->y < WIDTH)
 	{
-		while (fractal->x < SIZE)
+		while (f->x < SIZE)
 		{
-			calculate_mandelbrot(fractal);
-			fractal->x++;
+			calculate_mandelbrot(f);
+			f->x++;
 		}
-		fractal->y++;
-		fractal->x = 0;
+		f->y++;
+		f->x = 0;
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->window,
-		fractal->image, 0, 0);
+	mlx_put_image_to_window(f->mlx, f->window,
+		f->image, 0, 0);
 	return (0);
 }
 
-int	draw_julia(t_fractal *fractal)
+int	draw_julia(t_fractal *f)
 {
-	fractal->x = 0;
-	fractal->y = 0;
-	while (fractal->x < SIZE)
+	f->x = 0;
+	f->y = 0;
+	while (f->x < SIZE)
 	{
-		while (fractal->y < SIZE)
+		while (f->y < SIZE)
 		{
-			calculate_julia(fractal);
-			fractal->y++;
+			calculate_julia(f);
+			f->y++;
 		}
-		fractal->x++;
-		fractal->y = 0;
+		f->x++;
+		f->y = 0;
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->window,
-		fractal->image, 0, 0);
-	mlx_hook(fractal->window, 6, 0, move_julia, fractal);
+	mlx_put_image_to_window(f->mlx, f->window,
+		f->image, 0, 0);
+	mlx_hook(f->window, 6, 0, move_julia, f);
 	return (0);
 }
 
-int	draw_tricorn(t_fractal *fractal)
+int	draw_tricorn(t_fractal *f)
 {
-	fractal->x = 0;
-	fractal->y = 0;
-	while (fractal->x < SIZE)
+	f->x = 0;
+	f->y = 0;
+	while (f->x < SIZE)
 	{
-		while (fractal->y < SIZE)
+		while (f->y < SIZE)
 		{
-			calculate_tricorn(fractal);
-			fractal->y++;
+			calculate_tricorn(f);
+			f->y++;
 		}
-		fractal->x++;
-		fractal->y = 0;
+		f->x++;
+		f->y = 0;
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->window,
-		fractal->image, 0, 0);
+	mlx_put_image_to_window(f->mlx, f->window,
+		f->image, 0, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/01 20:31:43 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:41:55 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,25 @@ typedef struct s_fractal
 	int		max_iterations;
 }			t_fractal;
 
-int		exit_fractal(t_fractal *fractal);
-int		key_hook(int key_code, t_fractal *fractal);
-int		mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
-void	zoom(t_fractal *fractal, int x, int y, int zoom);
+int		exit_fractal(t_fractal *f);
+int		key_hook(int key_code, t_fractal *f);
+int		mouse_hook(int mouse_code, int x, int y, t_fractal *f);
+void	zoom(t_fractal *f, int x, int y, int zoom);
 int		draw_mandelbrot(t_fractal *f);
 int		draw_julia(t_fractal *f);
 int		draw_tricorn(t_fractal *f);
-void	init_fractal(t_fractal *fractal);
-void	init_mlx(t_fractal *fractal);
+void	init_fractal(t_fractal *f);
+void	init_mlx(t_fractal *f);
 double	ft_atof(char *str);
-void	calculate_julia(t_fractal *fractal);
-void	calculate_mandelbrot(t_fractal *fractal);
-void	calculate_tricorn(t_fractal *fractal);
+void	calculate_julia(t_fractal *f);
+void	calculate_mandelbrot(t_fractal *f);
+void	calculate_tricorn(t_fractal *f);
 int		ft_strcmp(char *s1, char *s2);
 double	generate_random_c(void);
 int		move_julia(int x, int y, t_fractal *ptr);
-void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color);
-void	change_iterations(t_fractal *fractal, int key_code);
-int		draw_fractal(t_fractal *fractal, char *query);
+void	put_color_to_pixel(t_fractal *f, int x, int y, int color);
+void	change_iterations(t_fractal *f, int key_code);
+int		draw_fractal(t_fractal *f, char *query);
 int		is_number(char *s);
 double	scale(double pixel, double min, double max, int size);
 
