@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/01 20:18:21 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:31:43 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ int		exit_fractal(t_fractal *fractal);
 int		key_hook(int key_code, t_fractal *fractal);
 int		mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
 void	zoom(t_fractal *fractal, int x, int y, int zoom);
-int		draw_mandelbrot(t_fractal *fractal);
-int		draw_julia(t_fractal *fractal);
-int		draw_tricorn(t_fractal *fractal);
+int		draw_mandelbrot(t_fractal *f);
+int		draw_julia(t_fractal *f);
+int		draw_tricorn(t_fractal *f);
 void	init_fractal(t_fractal *fractal);
 void	init_mlx(t_fractal *fractal);
 double	ft_atof(char *str);
