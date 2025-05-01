@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/27 15:56:37 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:18:21 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ typedef struct s_fractal
 	void	*mlx;
 	void	*window;
 	void	*image;
-	char	*pointer_to_image;
+	char	*pointer_to_addr;
 	int		bits_per_pixel;
 	int		size_line;
 	int		endian;
 	int		x;
 	int		y;
-	double	zre;
-	double	zim;
-	double	cre;
-	double	cim;
+	double	zr;
+	double	zi;
+	double	cr;
+	double	ci;
 	int		color;
 	double	offset_x;
 	double	offset_y;

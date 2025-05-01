@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:37:05 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/28 17:40:45 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 16:50:25 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	init_mlx(t_fractal *fractal)
 		write(2, "Error: Failed to create image\n", 30);
 		exit_fractal(fractal);
 	}
-	fractal->pointer_to_image = mlx_get_data_addr(fractal->image,
+	fractal->pointer_to_addr = mlx_get_data_addr(fractal->image,
 			&fractal->bits_per_pixel, &fractal->size_line, &fractal->endian);
-	if (!fractal->pointer_to_image)
+	if (!fractal->pointer_to_addr)
 	{
 		write(2, "Error: Failed to get image address\n", 35);
 		exit_fractal(fractal);

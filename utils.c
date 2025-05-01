@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:01:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/27 14:45:59 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 15:33:04 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
 {
 	char	*buffer;
 
-	buffer = fractal->pointer_to_image + ((y * fractal->size_line)
+	buffer = fractal->pointer_to_addr + ((y * fractal->size_line)
 			+ (x *(fractal->bits_per_pixel / 8)));
 	*(unsigned int *)buffer = color;
 }

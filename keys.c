@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:06:06 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/28 16:59:44 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:19:22 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int	move_julia(int x, int y, t_fractal *ptr)
 {
 	if (x >= 0 && x < WIDTH && y >= 0 && y < SIZE)
 	{
-		ptr->cre = (double)x / WIDTH;
-		ptr->cim = (double)y / SIZE;
+		ptr->cr = (double)x / WIDTH;
+		ptr->ci = (double)y / SIZE;
 		mlx_clear_window(ptr->mlx, ptr->window);
 		draw_julia(ptr);
 	}

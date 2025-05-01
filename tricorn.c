@@ -6,36 +6,36 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 11:43:31 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/27 14:03:08 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:30:15 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	calculate_tricorn(t_fractal *fractal)
+void	calculate_tricorn(t_fractal *f)
 {
 	int		i;
-	double	x_temp;
+	double	zr;
+	double	zi;
+	double	tmp;
 
-	fractal->zre = 0;
-	fractal->zim = 0;
-	fractal->cre = scale(fractal->x, -2.0 / fractal->zoom + fractal->offset_x,
-			2.0 / fractal->zoom + fractal->offset_x, WIDTH);
-	fractal->cim = scale(fractal->y, -2.0 / fractal->zoom + fractal->offset_y,
-			2.0 / fractal->zoom + fractal->offset_y, SIZE);
+	f->cr = scale(f->x, -2.0 / f->zoom + f->offset_x,
+			2.0 / f->zoom + f->offset_x, WIDTH);
+	f->ci = scale(f->y, -2.0 / f->zoom + f->offset_y,
+			2.0 / f->zoom + f->offset_y, SIZE);
+	zr = 0;
+	zi = 0;
 	i = 0;
-	while (++i < fractal->max_iterations)
+	while (++i < f->max_iterations)
 	{
-		x_temp = fractal->zre * fractal->zre - fractal->zim * fractal->zim
-			+ fractal->cre;
-		fractal->zim = -2.0 * fractal->zre * fractal->zim + fractal->cim;
-		fractal->zre = x_temp;
-		if (fractal->zre * fractal->zre + fractal->zim * fractal->zim > 4.0)
+		tmp = zr * zr - zi * zi + f->cr;
+		zi = -2.0 * zr * zi + f->ci;
+		zr = tmp;
+		if ((zr * zr + zi * zi) > 4.0)
 			break ;
 	}
-	if (i == fractal->max_iterations)
-		put_color_to_pixel(fractal, fractal->x, fractal->y, 0x000000);
+	if (i == f->max_iterations)
+		put_color_to_pixel(f, f->x, f->y, 0x000000);
 	else
-		put_color_to_pixel(fractal, fractal->x, fractal->y,
-			fractal->color * i);
+		put_color_to_pixel(f, f->x, f->y, f->color * i);
 }

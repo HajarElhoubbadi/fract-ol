@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/28 17:09:55 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:20:47 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	handle_julia(t_fractal *f, char **argv)
 		free(f);
 		exit(1);
 	}
-	f->cre = ft_atof(argv[2]);
-	f->cim = ft_atof(argv[3]);
+	f->cr = ft_atof(argv[2]);
+	f->ci = ft_atof(argv[3]);
 	return (1);
 }
 
