@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/01 20:41:55 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/02 18:49:19 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,8 @@ void	calculate_mandelbrot(t_fractal *f);
 void	calculate_tricorn(t_fractal *f);
 int		ft_strcmp(char *s1, char *s2);
 double	generate_random_c(void);
-int		move_julia(int x, int y, t_fractal *ptr);
 void	put_color_to_pixel(t_fractal *f, int x, int y, int color);
-void	change_iterations(t_fractal *f, int key_code);
-int		draw_fractal(t_fractal *f, char *query);
+int		draw_fractal(t_fractal *f, char *name);
 int		is_number(char *s);
 double	scale(double pixel, double min, double max, int size);
 
