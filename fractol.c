@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/01 20:20:47 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/03 13:40:54 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	handle_julia(t_fractal *f, char **argv)
 		free(f);
 		exit(1);
 	}
-	f->cr = ft_atof(argv[2]);
-	f->ci = ft_atof(argv[3]);
+	f->cr = parsing(argv[2]);
+	f->ci = parsing(argv[3]);
 	return (1);
 }
 
@@ -51,10 +51,10 @@ int	main(int argc, char **argv)
 		handle_julia(f, argv);
 	init_fractal(f);
 	init_mlx(f);
+	draw_fractal(f, f->name);
 	mlx_key_hook(f->window, key_hook, f);
 	mlx_mouse_hook(f->window, mouse_hook, f);
 	mlx_hook(f->window, 17, 0, exit_fractal, f);
-	draw_fractal(f, f->name);
 	mlx_loop(f->mlx);
 	return (0);
 }

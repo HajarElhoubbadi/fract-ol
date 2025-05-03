@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 18:43:50 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/04/27 14:14:03 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/03 12:40:45 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	is_number(char *s)
 	return (1);
 }
 
-double	ft_atof(char *s)
+double	parsing(char *av)
 {
 	int		i;
 	double	nb;
@@ -56,17 +56,17 @@ double	ft_atof(char *s)
 	nb = 0;
 	div = 0.1;
 	sign = 1;
-	if (s[i] == '-' || s[i] == '+')
-		if (s[i++] == '-')
+	if (av[i] == '-' || av[i] == '+')
+		if (av[i++] == '-')
 			sign = -1;
-	while (s[i] >= '0' && s[i] <= '9')
-		nb = nb * 10 + (s[i++] - '0');
-	if (s[i] == '.')
+	while (av[i] >= '0' && av[i] <= '9')
+		nb = nb * 10 + (av[i++] - '0');
+	if (av[i] == '.')
 	{
 		i++;
-		while (s[i] >= '0' && s[i] <= '9')
+		while (av[i] >= '0' && av[i] <= '9')
 		{
-			nb += (s[i++] - '0') * div;
+			nb += (av[i++] - '0') * div;
 			div *= 0.1;
 		}
 	}
