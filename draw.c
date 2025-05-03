@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:34:49 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/03 13:37:52 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/03 14:00:25 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int	draw_mandelbrot(t_fractal *f)
 		}
 		f->y++;
 	}
-	mlx_put_image_to_window(f->mlx, f->window,
-		f->image, 0, 0);
+	mlx_put_image_to_window(f->mlx, f->window, f->image, 0, 0);
 	return (0);
 }
 
@@ -57,8 +56,7 @@ int	draw_julia(t_fractal *f)
 		}
 		f->y++;
 	}
-	mlx_put_image_to_window(f->mlx, f->window,
-		f->image, 0, 0);
+	mlx_put_image_to_window(f->mlx, f->window, f->image, 0, 0);
 	return (0);
 }
 
@@ -75,7 +73,6 @@ int	draw_tricorn(t_fractal *f)
 		}
 		f->y++;
 	}
-	mlx_put_image_to_window(f->mlx, f->window,
-		f->image, 0, 0);
+	mlx_put_image_to_window(f->mlx, f->window, f->image, 0, 0);
 	return (0);
 }
