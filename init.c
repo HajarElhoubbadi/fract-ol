@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:37:05 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/03 17:00:03 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/05 12:32:36 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	init_fractal(t_fractal *f)
 	f->zoom = 1;
 	f->max_iterations = 100;
 	f->color = 0xFFF8DC;
-	f->offset_x = 0.0;
-	f->offset_y = 0.0;
+	f->offset_x = 0;
+	f->offset_y = 0;
 }
 
 void	init_mlx(t_fractal *f)
