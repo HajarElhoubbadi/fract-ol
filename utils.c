@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:01:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/08 15:19:38 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:30:28 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ int	is_number(char *s)
 		return (0);
 	if (s[i] == '-' || s[i] == '+')
 		i++;
-	while (s[i])
+	if (s[i] == '.')
+		return (0);
+	while (s[i++])
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 			digit = 1;
@@ -64,7 +66,6 @@ int	is_number(char *s)
 			dot = 1;
 		else
 			return (0);
-		i++;
 	}
 	if (!digit || (dot && s[i - 1] == '.'))
 		return (0);

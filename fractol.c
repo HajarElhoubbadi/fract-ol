@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/08 16:13:25 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/08 16:57:26 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	handle_julia(t_fractal *f, char **argv)
 	{
 		write(2, "Error: Invalid parameters for Julia set\n", 40);
 		free(f);
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	f->cr = parsing(argv[2]);
 	f->ci = parsing(argv[3]);
