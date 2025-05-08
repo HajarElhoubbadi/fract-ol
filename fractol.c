@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/08 15:38:57 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/08 16:10:17 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	check_args(int argc, char **argv)
 {
-	if ((argc == 2 && (!ft_strcmp(argv[1], "mandelbrot")
-				|| !ft_strcmp(argv[1], "tricorn")))
-		|| (argc == 4 && !ft_strcmp(argv[1], "julia")))
+	if ((argc == 2 && (ft_strcmp(argv[1], "mandelbrot") == 0
+				|| ft_strcmp(argv[1], "tricorn") == 0))
+		|| (argc == 4 && ft_strcmp(argv[1], "julia") == 0))
 		return (1);
 	write(2, "./fractol mandelbrot\n", 21);
 	write(2, "./fractol tricorn\n", 18);
