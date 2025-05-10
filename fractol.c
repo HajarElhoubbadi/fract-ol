@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:22 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/08 16:57:26 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:48:30 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	handle_julia(t_fractal *f, char **argv)
 	if (!is_number(argv[2]) || !is_number(argv[3]))
 	{
 		write(2, "Error: Invalid parameters for Julia set\n", 40);
-		free(f);
 		exit(1);
 	}
 	f->cr = parsing(argv[2]);
@@ -39,22 +38,19 @@ int	handle_julia(t_fractal *f, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_fractal	*f;
+	t_fractal	f;
 
 	if (!check_args(argc, argv))
 		return (1);
-	f = malloc(sizeof(t_fractal));
-	if (!f)
-		return (1);
-	f->name = argv[1];
-	if (!ft_strcmp(f->name, "julia"))
-		handle_julia(f, argv);
-	init_fractal(f);
-	init_mlx(f);
-	draw_fractal(f, f->name);
-	mlx_key_hook(f->window, key_hook, f);
-	mlx_mouse_hook(f->window, mouse_hook, f);
-	mlx_hook(f->window, 17, 0, exit_fractal, f);
-	mlx_loop(f->mlx);
+	f.name = argv[1];
+	if (ft_strcmp(f.name, "julia") == 0)
+		handle_julia(&f, argv);
+	init_fractal(&f);
+	init_mlx(&f);
+	draw_fractal(&f, f.name);
+	mlx_key_hook(f.window, key_hook, &f);
+	mlx_mouse_hook(f.window, mouse_hook, &f);
+	mlx_hook(f.window, 17, 0, close_window, &f);
+	mlx_loop(f.mlx);
 	return (0);
 }

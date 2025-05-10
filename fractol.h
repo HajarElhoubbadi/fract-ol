@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:27:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/09 14:57:01 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:44:20 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_fractal
 	int		max_iterations;
 }			t_fractal;
 
-int		exit_fractal(t_fractal *f);
+int		close_window(t_fractal *f);
 int		key_hook(int key_code, t_fractal *f);
 int		mouse_hook(int mouse_code, int x, int y, t_fractal *f);
 void	zoom(t_fractal *f, int x, int y, int zoom);

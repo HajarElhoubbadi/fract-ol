@@ -6,19 +6,17 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:01:44 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/09 11:52:40 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:43:47 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	exit_fractal(t_fractal *f)
+int	close_window(t_fractal *f)
 {
 	mlx_destroy_image(f->mlx, f->image);
 	mlx_destroy_window(f->mlx, f->window);
-	free(f->mlx);
-	free(f);
-	exit(1);
+	exit(0);
 	return (0);
 }
 

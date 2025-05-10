@@ -6,7 +6,7 @@
 /*   By: hajel-ho <hajel-ho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:34:49 by hajel-ho          #+#    #+#             */
-/*   Updated: 2025/05/09 18:03:57 by hajel-ho         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:44:40 by hajel-ho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	draw_fractal(t_fractal *f, char *name)
 	else if (ft_strcmp(name, "tricorn") == 0)
 		draw_tricorn(f);
 	else
-		exit_fractal(f);
+		close_window(f);
 	return (0);
 }
 
